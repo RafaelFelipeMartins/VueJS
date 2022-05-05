@@ -22,4 +22,10 @@ function gerarVariosNumeros() {
     ]);
 }
 
-gerarVariosNumeros().then((numeros) => console.log(numeros));
+console.log("promise");
+
+gerarVariosNumeros()
+    .then((numeros) => console.log(numeros))
+    .then(() => {
+        console.timeEnd("promise");
+    });
