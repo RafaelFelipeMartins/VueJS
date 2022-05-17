@@ -15,7 +15,7 @@
         <div>
             <input type="text" size="25"
                 placeholder="Digite para gerar..."
-                :value="text" @input="onData">
+                v-model="text" @input="onData">
         </div>
 
         <div v-if="text" class="output">
@@ -33,7 +33,7 @@
             computed: {
                 newQRCode() {
                     this.qrcode.value = this.text 
-                    return this.qrcode.toDataURL()
+                    return this.qrcode.toDataURL() 
                 }
             },
             methods: {
