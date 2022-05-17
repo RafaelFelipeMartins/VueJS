@@ -1,23 +1,23 @@
 <template>
     <div class="calculator">
-        <Display />
-        <Button label="AC" triple @onCalcButtonClick="clearMemory"  />
-        <Button label="/" operation @onCalcButtonClick="setOperation"/>
-        <Button label="7" @onCalcButtonClick="addDigit"/>
-        <Button label="8"/>
-        <Button label="9"/>
-        <Button label="*" operation/>
-        <Button label="4"/>
-        <Button label="5"/>
-        <Button label="6"/>
-        <Button label="-" operation/>
-        <Button label="1"/>
-        <Button label="2"/>
-        <Button label="3"/>
-        <Button label="+" operation/>
-        <Button label="0" double/>
-        <Button label="."/>
-        <Button label="=" operation/>
+        <Display :value="displayValue"/>
+        <Button label="AC" triple @onClick="clearMemory"  />
+        <Button label="/" operation @onClick="setOperation"/>
+        <Button label="7" @onClick="addDigit"/>
+        <Button label="8"  @onClick="addDigit"/>
+        <Button label="9"  @onClick="addDigit"/>
+        <Button label="*" operation @onClick="setOperation"/>
+        <Button label="4"  @onClick="addDigit"/>
+        <Button label="5"  @onClick="addDigit"/>
+        <Button label="6"  @onClick="addDigit"/>
+        <Button label="-" operation @onClick="setOperation"/>
+        <Button label="1"  @onClick="addDigit"/>
+        <Button label="2"  @onClick="addDigit"/>
+        <Button label="3"  @onClick="addDigit"/>
+        <Button label="+" operation @onClick="setOperation"/>
+        <Button label="0" double @onClick="addDigit"/>
+        <Button label="."  @onClick="addDigit"/>
+        <Button label="=" operation @onClick="setOperation"/>
 
     </div>
 </template>
@@ -25,20 +25,52 @@
 <script>
 import Display from "../components/Display"
 import Button from "../components/Button"
-import Display from '../components/Display'
+//import Display from '../components/Display'
 
 
 export default {
+    data: function() {
+        return {
+            displayValue: "0",
+            clearDisplay: false,
+            operation: null,
+            values: [0, 0],
+            current: 0
+        }
+    },
+
     components: { Button, Display, Display },
     methods: {
         clearMemory() {
-            console.log('Limpar Memória!')
+            Object.assign(this.$data, this.$options.data())
         },
         setOperation(operation) {
-            console.log('Operação ' + operation)
+            if (this.current === 0) {
+                this.operation = operation 
+                this.current = 1 
+                this.clearDisplay = true
+            } else {
+                const equals = operation === "="
+            }
         },
         addDigit(n) {
-            console.log('Digito ' + n) 
+            if (n === "." && this.displayValue.includes(".")) {
+                return
+            }
+
+            const clearDisplay = this.displayValue === "0"
+                || this.clearDisplay
+            const currentValue = clearDisplay ? "": this.displayValue 
+            const displayValue = currentValue + n
+
+            this.displayValue = displayValue
+            this.clearDisplay = false
+
+            if (n !== ".") {
+                const i = this.current
+                const newValue = parseFloat(displayValue)
+                this.values[i] = newValue
+            }
         }
     }
 }
