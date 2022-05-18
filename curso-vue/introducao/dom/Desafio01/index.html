@@ -19,7 +19,8 @@
     
     <!-- 5) Inicialize o input com o seu nome (use o atributo "value") -->
     <div>
-        <input type="text">
+        <input type="text" v-on:input="mudaNome" v-bind:value="nome">
+        <p>{{ nome }}</p>
     </div>
 </div>
 <script src="app.js"></script>
