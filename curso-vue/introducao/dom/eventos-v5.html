@@ -8,6 +8,7 @@
         <span v-on:mousemove="parar">PARAR AQUI!!!</span>
     </p>
     <a  v-on:click="naoNavegar" href="http://google.com" target="_blank">Google</a>
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta">
 </div>
 
 <script>
@@ -21,6 +22,9 @@
         methods: {
             somar(passo, event) {
                 this.contador += passo
+            },
+            exibirAlerta(){
+                alert('Estou te alertando!')
             },
             atualizarXY(e) {
                 this.x = event.clientX
