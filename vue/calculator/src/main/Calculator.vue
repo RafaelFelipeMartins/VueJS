@@ -51,6 +51,11 @@ export default {
                 this.clearDisplay = true
             } else {
                 const equals = operation === "="
+                const currentOperation = this.operation
+
+                try {
+                    this.values[0] = eval() <!-- Você parou AQUIIIIIIII -->
+                }
             }
         },
         addDigit(n) {
