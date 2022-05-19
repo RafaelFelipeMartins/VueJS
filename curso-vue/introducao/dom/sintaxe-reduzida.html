@@ -1,22 +1,21 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <p v-once>{{ titulo }}</p>
-    <p>{{ saudacao() }}</p>
-    <a v-bind:href="link" target="_blank">Google</a>
+    <p>{{ contador }}</p>
+    <button @click="somar">Somar 1</button>
+    <hr>
+    <input type="text" :value="contador">
 </div>
 
 <script>
     new Vue({
         el: '#app',
         data: {
-            titulo: 'Usando VueJS2!',
-            link: 'http://google.com.br'
+            contador: 0
         },
         methods: {
-            saudacao: function() {
-                this.titulo = 'Bom dia!!!'
-                return this.titulo
+            somar() {
+                this.contador++
             }
         }
     })
