@@ -2,10 +2,11 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
+    <comp></comp>
 </div>
 
 <script>
-    const vm = new Vue({
+    Vue.component('comp', {
         template: `
             <div>
                 <h1>{{ aula }}</h1>
@@ -14,10 +15,11 @@
                 <button @click="alterarModulo">Alterar Módulo</button>
             </div>
         `,
-       //el: '#app',
-        data: {
-            aula: 'Aula: Montando Instância Vue',
-            modulo: 'Módulo: Instancia Vue'
+        data: function() {
+            return {
+                aula: 'Aula: Montando Instância Vue',
+                modulo: 'Módulo: Instancia Vue'
+            }
         },
         methods: {
             alterarAula() {
@@ -29,7 +31,7 @@
         }
     })
 
-    // vm.$mount('#app')
-    vm.$mount()
-    document.querySelector('#app').appendChild(vm.$el)
+    const vm = new Vue({
+        el: '#app',
+    })
 </script>
