@@ -1,19 +1,23 @@
 <template>
   <div>
     <PrimeiroComponente />
-    <P>O dado de app é: {{ testando }}</P>
+    <p>O dado de app é: {{ testando }}</p>
+    <LyfeCycle />
+    <Pessoa />
   </div>
 </template>
 
 <script>
   import PrimeiroComponente from './components/PrimeiroComponente.vue'
-  import LifeCycle from './components/LyfeCycle.vue'
+  import LyfeCycle from './components/LyfeCycle.vue'
+  import Pessoa from './components/Pessoa.vue'
 
   export default {
     name: 'App',
     components: {
       PrimeiroComponente,
-      LifeCycle
+      LyfeCycle,
+      Pessoa
     },
     data() {
       return {

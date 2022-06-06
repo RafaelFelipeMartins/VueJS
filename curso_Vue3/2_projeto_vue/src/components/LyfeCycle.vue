@@ -7,8 +7,18 @@
         name: 'LyfeCycle',
         data() {
             return {
-                nome: 'AInda não sei '
+                nome: 'Ainda não sei '
             }
+        },
+        created() {
+            setTimeout(() => {
+                this.nome = 'Matheus' 
+            }, 1000);
+        },
+        mounted() {
+            setTimeout(() => {
+                this.nome = 'Jão' 
+            }, 2000);
         }
     }
 </script>
