@@ -1,4 +1,6 @@
 <template>
+   <div>
+        <h2>Meu formulário:</h2>
     <form action="">
        <div>
             <InputText />
@@ -10,6 +12,7 @@
             <Submit /> 
        </div>
     </form>
+   </div>
 </template>
 <script>
     import InputText from './form/InputText.vue'

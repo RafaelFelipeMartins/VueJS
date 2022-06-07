@@ -1,20 +1,19 @@
 <template>
    <div>
-        <h2>Está é a descrição da pessoa: {{ nome }}</h2>
-        <Info />
+        <h2>Esta é a descrição da pessoa: {{ nome }}</h2>
+        <!-- <Info /> -->
    </div>
 </template>
 <script>
-    import Info from './Info'
-
+    // import LyfeCycle from './form/Info.vue'
     export default {
         name: 'Pessoa',
-        components: {
-            Info
-        },
+        // components: {
+        //    Info
+        // },
         data() {
             return {
-                nome: 'Rafael'
+                nome: "Rafão"
             }
         }
     }
